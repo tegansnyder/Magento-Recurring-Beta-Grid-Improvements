@@ -11,3 +11,6 @@ Customer Email
 Customer Id
 Customer Name
 Next Bill Date
+
+
+> TODO: refactor the renderers
