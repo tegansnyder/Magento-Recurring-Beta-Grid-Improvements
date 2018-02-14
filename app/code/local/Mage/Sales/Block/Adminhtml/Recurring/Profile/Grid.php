@@ -70,24 +70,24 @@ class Mage_Sales_Block_Adminhtml_Recurring_Profile_Grid extends Mage_Adminhtml_B
             'html_decorators' => array('nobr'),
             'width' => 1,
         ));
-        
-        $this->addColumn('customer_id', array(
-        	'header'=> Mage::helper('catalog')->__('customer_id'),
-        	'index' => 'order_info',
-        	'renderer'  => 'Mage_Sales_Block_Adminhtml_Recurring_Profile_Renderer_Customerid', // WE ADDED THIS
+
+        $this->addColumn('recurring_customer_id', array(
+            'header'=> Mage::helper('catalog')->__('Customer Id'),
+            'index' => 'order_info',
+            'renderer'  => 'Mage_Sales_Block_Adminhtml_Recurring_Profile_Renderer_Customerid', // WE ADDED THIS
         ));
 
-		$this->addColumn('customer_name', array(
-			'header'=> Mage::helper('catalog')->__('customer_name'),
-			'index' => 'order_info',
-			'renderer'  => 'Mage_Sales_Block_Adminhtml_Recurring_Profile_Renderer_Customername', // WE ADDED THIS
-		));
-		
-		$this->addColumn('customer_email', array(
-			'header'=> Mage::helper('catalog')->__('customer_email'),
-			'index' => 'order_info',
-			'renderer'  => 'Mage_Sales_Block_Adminhtml_Recurring_Profile_Renderer_Customeremail', // WE ADDED THIS
-		));
+        $this->addColumn('recurring_customer_name', array(
+            'header'=> Mage::helper('catalog')->__('Customer Name'),
+            'index' => 'order_info',
+            'renderer'  => 'Mage_Sales_Block_Adminhtml_Recurring_Profile_Renderer_Customername', // WE ADDED THIS
+        ));
+
+        $this->addColumn('recurring_customer_email', array(
+            'header'=> Mage::helper('catalog')->__('Customer Email'),
+            'index' => 'order_info',
+            'renderer'  => 'Mage_Sales_Block_Adminhtml_Recurring_Profile_Renderer_Customeremail', // WE ADDED THIS
+        ));
 
         if (!Mage::app()->isSingleStoreMode()) {
             $this->addColumn('store_id', array(
@@ -123,14 +123,14 @@ class Mage_Sales_Block_Adminhtml_Recurring_Profile_Grid extends Mage_Adminhtml_B
             'html_decorators' => array('nobr'),
             'width' => 1,
         ));
-        
-        $this->addColumn('next_cycle', array(
-        	'header'=> Mage::helper('catalog')->__('Next Bill'),
-        	'index' => 'additional_info',
-        	'type' => 'datetime',
-        	'html_decorators' => array('nobr'),
-        	'width' => 1,
-        	'renderer'  => 'Mage_Sales_Block_Adminhtml_Recurring_Profile_Renderer_Nextcycle', // WE ADDED THIS
+
+        $this->addColumn('recurring_next_cycle', array(
+            'header'=> Mage::helper('catalog')->__('Next Bill'),
+            'index' => 'next_billing_at',
+            'type' => 'datetime',
+            'html_decorators' => array('nobr'),
+            'width' => 1,
+            'renderer'  => 'Mage_Sales_Block_Adminhtml_Recurring_Profile_Renderer_Nextcycle', // WE ADDED THIS
         ));
 
         $methods = array();
@@ -148,17 +148,17 @@ class Mage_Sales_Block_Adminhtml_Recurring_Profile_Grid extends Mage_Adminhtml_B
             'header' => $profile->getFieldLabel('schedule_description'),
             'index' => 'schedule_description',
         ));
-        
-        $this->addColumn('coupon_code', array(
-        	'header'=> Mage::helper('catalog')->__('coupon_code'),
-        	'index' => 'order_info',
-        	'renderer'  => 'Mage_Sales_Block_Adminhtml_Recurring_Profile_Renderer_Couponused', // WE ADDED THIS
+
+        $this->addColumn('recurring_coupon_code', array(
+            'header'=> Mage::helper('catalog')->__('Coupon Code'),
+            'index' => 'order_info',
+            'renderer'  => 'Mage_Sales_Block_Adminhtml_Recurring_Profile_Renderer_Couponused', // WE ADDED THIS
         ));
-        
-        $this->addColumn('additional_info', array(
-        	'header'=> Mage::helper('catalog')->__('additional_info'),
-        	'index' => 'additional_info',
-        	'renderer'  => 'Mage_Sales_Block_Adminhtml_Recurring_Profile_Renderer_Additional', // WE ADDED THIS
+
+        $this->addColumn('recurring_additional_info', array(
+            'header'=> Mage::helper('catalog')->__('Additional Info'),
+            'index' => 'additional_info',
+            'renderer'  => 'Mage_Sales_Block_Adminhtml_Recurring_Profile_Renderer_Additional', // WE ADDED THIS
         ));
 
         return parent::_prepareColumns();
